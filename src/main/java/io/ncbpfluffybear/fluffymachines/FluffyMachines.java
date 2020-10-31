@@ -14,6 +14,7 @@ import me.mrCookieSlime.Slimefun.bstats.bukkit.Metrics;
 import me.mrCookieSlime.Slimefun.cscorelib2.config.Config;
 import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
 import io.ncbpfluffybear.fluffymachines.utils.Events;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.command.Command;
@@ -21,13 +22,25 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.RayTraceResult;
 
 import javax.annotation.Nonnull;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.Field;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.logging.Level;
+
+import static org.bukkit.Bukkit.recipeIterator;
 
 public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
 
@@ -64,6 +77,9 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
         // Register Events Class
         getServer().getPluginManager().registerEvents(new Events(), this);
 
+        // Log all Bukkit recipes
+        logRecipes();
+
         final Metrics metrics = new Metrics(this, 8927);
 
         getLogger().log(Level.INFO, ChatColor.GREEN + "Hi there! Want to share your server with the " +
@@ -88,6 +104,30 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onDisable() {
         // Logic for disabling the plugin...
+    }
+
+    private void logRecipes() throws IOException {
+        Iterator<Recipe> recipes = Bukkit.recipeIterator();
+        File f = new File(this.getDataFolder() + "/recipes/");
+        if (f.delete() || !f.exists()) {
+            f.mkdir();
+            while (recipes.hasNext()) {
+                Recipe r = recipes.next();
+                if (r instanceof ShapedRecipe) {
+                    FileWriter fw = new FileWriter(this.getDataFolder() + "/recipes/" + r.getResult().getType() + ".txt");
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter pw = new PrintWriter(bw);
+                    pw.append(((ShapedRecipe) r).getChoiceMap().toString());
+                    pw.close();
+                } else if (r instanceof ShapelessRecipe) {
+                    FileWriter fw = new FileWriter(this.getDataFolder() + "/recipes/" + "shapeless_" + r.getResult().getType() + ".txt");
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter pw = new PrintWriter(bw);
+                    pw.append(((ShapelessRecipe) r).getChoiceList().toString());
+                    pw.close();
+                }
+            }
+        }
     }
 
     @Override

@@ -5,6 +5,7 @@ import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import io.ncbpfluffybear.fluffymachines.FluffyMachines;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu.AdvancedMenuClickHandler;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
@@ -35,6 +36,7 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
 
 import javax.annotation.Nonnull;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -321,11 +323,14 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
             return;
         }
 
+        mats(block, menu, reqMats, existingMats, existingMatSlots)
+
         // Make a list using the key item
 
         // This boi under is a big fat resource sucker
-        recipes = Bukkit.getRecipesFor(keyItem);
-        for (Recipe r : recipes) {
+        //recipes = Bukkit.getRecipesFor(keyItem);
+
+        /*for (Recipe r : recipes) {
             if (r instanceof ShapedRecipe) {
                 Map<Character, RecipeChoice> recipeMap;
 
@@ -355,10 +360,12 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
                 if (mats(block, menu, reqMats, existingMats, existingMatSlots, r)) break;
             }
         }
+
+         */
     }
 
     private boolean mats(Block block, BlockMenu menu, List<Material> reqMats, List<Material> existingMats,
-                         List<Integer> existingMatSlots, Recipe r) {
+                         List<Integer> existingMatSlots) {
         if (reqMats.equals(existingMats)) {
             existingMatSlots.forEach(menu::consumeItem);
             menu.pushItem(r.getResult(), getOutputSlots());

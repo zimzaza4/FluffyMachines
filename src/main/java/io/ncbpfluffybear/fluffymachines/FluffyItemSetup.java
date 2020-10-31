@@ -55,41 +55,44 @@ public final class FluffyItemSetup {
         // Barrels
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.SMALL_FLUFFY_BARREL, RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[] {
-            new ItemStack(Material.OAK_LOG), new ItemStack(Material.BARREL), new ItemStack(Material.OAK_LOG),
-            new ItemStack(Material.OAK_LOG), new ItemStack(Material.BARREL), new ItemStack(Material.OAK_LOG),
-            new ItemStack(Material.OAK_LOG), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.OAK_LOG)},
+                new ItemStack(Material.OAK_LOG), new ItemStack(Material.BARREL), new ItemStack(Material.OAK_LOG),
+                new ItemStack(Material.OAK_LOG), new ItemStack(Material.BARREL), new ItemStack(Material.OAK_LOG),
+                new ItemStack(Material.OAK_LOG), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.OAK_LOG)},
             "&eSmall Fluffy Barrel", Barrel.SMALL_BARREL_SIZE
         ).register(plugin);
 
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.MEDIUM_FLUFFY_BARREL, RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[] {
-            new ItemStack(Material.SMOOTH_STONE), FluffyItems.SMALL_FLUFFY_BARREL, new ItemStack(Material.SMOOTH_STONE),
-            new ItemStack(Material.SMOOTH_STONE), FluffyItems.SMALL_FLUFFY_BARREL, new ItemStack(Material.SMOOTH_STONE),
-            new ItemStack(Material.SMOOTH_STONE), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.SMOOTH_STONE)},
+                new ItemStack(Material.SMOOTH_STONE), FluffyItems.SMALL_FLUFFY_BARREL,
+                new ItemStack(Material.SMOOTH_STONE),
+                new ItemStack(Material.SMOOTH_STONE), FluffyItems.SMALL_FLUFFY_BARREL,
+                new ItemStack(Material.SMOOTH_STONE),
+                new ItemStack(Material.SMOOTH_STONE), SlimefunItems.REINFORCED_PLATE,
+                new ItemStack(Material.SMOOTH_STONE)},
             "&6Medium Fluffy Barrel", Barrel.MEDIUM_BARREL_SIZE
         ).register(plugin);
 
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.BIG_FLUFFY_BARREL, RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[] {
-            new ItemStack(Material.BRICKS), FluffyItems.MEDIUM_FLUFFY_BARREL, new ItemStack(Material.BRICKS),
-            new ItemStack(Material.BRICKS), FluffyItems.MEDIUM_FLUFFY_BARREL, new ItemStack(Material.BRICKS),
-            new ItemStack(Material.BRICKS), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.BRICKS)},
+                new ItemStack(Material.BRICKS), FluffyItems.MEDIUM_FLUFFY_BARREL, new ItemStack(Material.BRICKS),
+                new ItemStack(Material.BRICKS), FluffyItems.MEDIUM_FLUFFY_BARREL, new ItemStack(Material.BRICKS),
+                new ItemStack(Material.BRICKS), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.BRICKS)},
             "&bBig Fluffy Barrel", Barrel.BIG_BARREL_SIZE
         ).register(plugin);
 
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.LARGE_FLUFFY_BARREL, RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[] {
-            new ItemStack(Material.IRON_BLOCK), FluffyItems.BIG_FLUFFY_BARREL, new ItemStack(Material.IRON_BLOCK),
-            new ItemStack(Material.IRON_BLOCK), FluffyItems.BIG_FLUFFY_BARREL, new ItemStack(Material.IRON_BLOCK),
-            new ItemStack(Material.IRON_BLOCK), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.IRON_BLOCK)},
+                new ItemStack(Material.IRON_BLOCK), FluffyItems.BIG_FLUFFY_BARREL, new ItemStack(Material.IRON_BLOCK),
+                new ItemStack(Material.IRON_BLOCK), FluffyItems.BIG_FLUFFY_BARREL, new ItemStack(Material.IRON_BLOCK),
+                new ItemStack(Material.IRON_BLOCK), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.IRON_BLOCK)},
             "&aLarge Fluffy Barrel", Barrel.LARGE_BARREL_SIZE
         ).register(plugin);
 
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.MASSIVE_FLUFFY_BARREL, RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[] {
-            new ItemStack(Material.OBSIDIAN), FluffyItems.LARGE_FLUFFY_BARREL, new ItemStack(Material.OBSIDIAN),
-            new ItemStack(Material.OBSIDIAN), FluffyItems.LARGE_FLUFFY_BARREL, new ItemStack(Material.OBSIDIAN),
-            new ItemStack(Material.OBSIDIAN), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.OBSIDIAN)},
+                new ItemStack(Material.OBSIDIAN), FluffyItems.LARGE_FLUFFY_BARREL, new ItemStack(Material.OBSIDIAN),
+                new ItemStack(Material.OBSIDIAN), FluffyItems.LARGE_FLUFFY_BARREL, new ItemStack(Material.OBSIDIAN),
+                new ItemStack(Material.OBSIDIAN), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.OBSIDIAN)},
             "&5Massive Fluffy Barrel", Barrel.MASSIVE_BARREL_SIZE
         ).register(plugin);
 
@@ -333,8 +336,8 @@ public final class FluffyItemSetup {
             RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
             null, new ItemStack(Material.STONE_PRESSURE_PLATE), null,
             new ItemStack(Material.PISTON), SlimefunItems.ELECTRIC_MOTOR, new ItemStack(Material.PISTON),
-            SlimefunItems.ALUMINUM_BRONZE_INGOT, SlimefunItems.ALUMINUM_BRONZE_INGOT,
-            SlimefunItems.ALUMINUM_BRONZE_INGOT},
+            SlimefunItems.ALUMINUM_BRONZE_INGOT, SlimefunItems.ALUMINUM_BRONZE_INGOT, SlimefunItems.ALUMINUM_BRONZE_INGOT
+        },
             new SlimefunItemStack(SlimefunItems.ELEVATOR_PLATE, 2)
         ).register(plugin);
 
