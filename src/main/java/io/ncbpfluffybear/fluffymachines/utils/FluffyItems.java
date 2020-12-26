@@ -36,186 +36,186 @@ public class FluffyItems {
     // Category
     public static final Category fluffymachines = new Category(new NamespacedKey(FluffyMachines.getInstance(),
         "fluffymachines"),
-        new CustomItem(Material.SMOKER, "&6Fluffy Machines")
+        new CustomItem(Material.SMOKER, "&6蓬松机器")
     );
 
     public static final Category fluffybarrels = new Category(new NamespacedKey(FluffyMachines.getInstance(),
         "fluffybarrels"),
-        new CustomItem(Material.BARREL, "&6Fluffy Barrels")
+        new CustomItem(Material.BARREL, "&6桶")
     );
 
     public static final SlimefunItemStack FLUFFYMACHINES_INFO = new SlimefunItemStack("FLUFFYMACHINES_INFO",
         Material.ORANGE_WOOL,
-        "&6&lFluffyMachines Info",
+        "&6&lFluffyMachines信息",
         "",
         "&e" + FluffyMachines.getInstance().getName() + " " + FluffyMachines.getInstance().getPluginVersion(),
         "",
-        "&eLeft Click &7to get the wiki link",
-        "&eRight Click &7to get the bug report link"
+        "&e左键&7以获取Wiki链接",
+        "&右键单击&7以获取错误报告链接"
     );
 
     // Barrels
     public static final SlimefunItemStack SMALL_FLUFFY_BARREL = new SlimefunItemStack("SMALL_FLUFFY_BARREL",
         Material.BEEHIVE,
-        "&eSmall Fluffy Barrel",
+        "&e小型桶",
         "",
-        "&7Stores a large amount of an item",
-        "&cDon't break with explosive tools...",
-        "&cUnless you want to lose everything inside",
+        "&7储存大量物品",
+        "&c不要用爆炸性工具破坏...",
+        "&c除非你想失去里面的一切",
         "",
-        "&bCapacity: &e" + Barrel.SMALL_BARREL_SIZE + " Items"
+        "&b容量: &e" + Barrel.SMALL_BARREL_SIZE + " 物品"
     );
 
     public static final SlimefunItemStack MEDIUM_FLUFFY_BARREL = new SlimefunItemStack("MEDIUM_FLUFFY_BARREL",
         Material.BARREL,
-        "&6Medium Fluffy Barrel",
+        "&6中型桶",
         "",
-        "&7Stores a large amount of an item",
-        "&cDon't break with explosive tools...",
-        "&cUnless you want to lose everything inside",
+        "&7储存大量物品",
+        "&c不要用爆炸性工具破坏...",
+        "&c除非你想失去里面的一切",
         "",
-        "&bCapacity: &e" + Barrel.MEDIUM_BARREL_SIZE + " Items"
+        "&b容量: &e" + Barrel.MEDIUM_BARREL_SIZE + " 物品"
     );
 
     public static final SlimefunItemStack BIG_FLUFFY_BARREL = new SlimefunItemStack("BIG_FLUFFY_BARREL",
         Material.SMOKER,
-        "&bBig Fluffy Barrel",
+        "&b大型桶I",
         "",
-        "&7Stores a large amount of an item",
-        "&cDon't break with explosive tools...",
-        "&cUnless you want to lose everything inside",
+        "&7储存大量物品",
+        "&c不要用爆炸性工具破坏...",
+        "&c除非你想失去里面的一切",
         "",
-        "&bCapacity: &e" + Barrel.BIG_BARREL_SIZE + " Items"
+        "&b容量: &e" + Barrel.BIG_BARREL_SIZE + " 物品"
     );
 
     public static final SlimefunItemStack LARGE_FLUFFY_BARREL = new SlimefunItemStack("LARGE_FLUFFY_BARREL",
         Material.LODESTONE,
-        "&aLarge Fluffy Barrel",
+        "&a大型桶II",
         "",
-        "&7Stores a large amount of an item",
-        "&cDon't break with explosive tools...",
-        "&cUnless you want to lose everything inside",
+        "&7储存大量物品",
+        "&c不要用爆炸性工具破坏...",
+        "&c除非你想失去里面的一切",
         "",
-        "&bCapacity: &e" + Barrel.LARGE_BARREL_SIZE + " Items"
+        "&b容量: &e" + Barrel.LARGE_BARREL_SIZE + " 物品"
     );
 
     public static final SlimefunItemStack MASSIVE_FLUFFY_BARREL = new SlimefunItemStack("MASSIVE_FLUFFY_BARREL",
         Material.CRYING_OBSIDIAN,
-        "&5Massive Fluffy Barrel",
+        "&5大型桶III",
         "",
-        "&7Stores a large amount of an item",
-        "&cDon't break with explosive tools...",
-        "&cUnless you want to lose everything inside",
+        "&7储存大量物品",
+        "&c不要用爆炸性工具破坏...",
+        "&c除非你想失去里面的一切",
         "",
-        "&bCapacity: &e" + Barrel.MASSIVE_BARREL_SIZE + " Items"
+        "&b容量: &e" + Barrel.MASSIVE_BARREL_SIZE + "  物品"
     );
 
     public static final SlimefunItemStack BOTTOMLESS_FLUFFY_BARREL = new SlimefunItemStack("BOTTOMLESS_FLUFFY_BARREL",
         Material.RESPAWN_ANCHOR,
-        "&cBottomless Fluffy Barrel",
+        "&c无底桶",
         "",
-        "&7Stores a large amount of an item",
-        "&cDon't break with explosive tools...",
-        "&cUnless you want to lose everything inside",
+        "&7储存大量物品",
+        "&c不要用爆炸性工具破坏...",
+        "&c除非你想失去里面的一切",
         "",
-        "&bCapacity: &e" + Barrel.BOTTOMLESS_BARREL_SIZE + " Items"
+        "&b容量: &e" + Barrel.BOTTOMLESS_BARREL_SIZE + " 物品"
     );
 
     // Portable Chargers
     public static final SlimefunItemStack SMALL_PORTABLE_CHARGER = new SlimefunItemStack("SMALL_PORTABLE_CHARGER",
         Material.BRICK,
-        "&eSmall Portable Charger",
+        "&e小型便携式充电器",
         "",
-        "&7A handheld charger that holds a lot of power",
+        "&7手持式充电器，可容纳大量电量",
         "",
-        "&eCharge Speed: &7" + PortableCharger.Type.SMALL.chargeSpeed + " J/s",
+        "&e充电速度: &7" + PortableCharger.Type.SMALL.chargeSpeed + " J/s",
         LoreBuilder.powerCharged(0, PortableCharger.Type.SMALL.chargeCapacity)
     );
 
     public static final SlimefunItemStack MEDIUM_PORTABLE_CHARGER = new SlimefunItemStack("MEDIUM_PORTABLE_CHARGER",
         Material.IRON_INGOT,
-        "&6Medium Portable Charger",
+        "&6中型便携式充电器",
         "",
-        "&7A handheld charger that holds a lot of power",
+        "&7手持式充电器，可容纳大量电量",
         "",
-        "&eCharge Speed: &7" + PortableCharger.Type.MEDIUM.chargeSpeed + " J/s",
+        "&e充电速度: &7" + PortableCharger.Type.MEDIUM.chargeSpeed + " J/s",
         LoreBuilder.powerCharged(0, PortableCharger.Type.MEDIUM.chargeCapacity)
     );
 
     public static final SlimefunItemStack BIG_PORTABLE_CHARGER = new SlimefunItemStack("BIG_PORTABLE_CHARGER",
         Material.GOLD_INGOT,
-        "&aBig Portable Charger",
+        "&a大型便携式充电器",
         "",
-        "&7A handheld charger that holds a lot of power",
+        "&7手持式充电器，可容纳大量电量",
         "",
-        "&eCharge Speed: &7" + PortableCharger.Type.BIG.chargeSpeed + " J/s",
+        "&e充电速度: &7" + PortableCharger.Type.BIG.chargeSpeed + " J/s",
         LoreBuilder.powerCharged(0, PortableCharger.Type.BIG.chargeCapacity)
     );
 
     public static final SlimefunItemStack LARGE_PORTABLE_CHARGER = new SlimefunItemStack("LARGE_PORTABLE_CHARGER",
         Material.NETHER_BRICK,
-        "&2Large Portable Charger",
+        "&2超大型便携式充电器",
         "",
-        "&7A handheld charger that holds a lot of power",
+        "&7手持式充电器，可容纳大量电量",
         "",
-        "&eCharge Speed: &7" + PortableCharger.Type.LARGE.chargeSpeed + " J/s",
+        "&e充电速度: &7" + PortableCharger.Type.LARGE.chargeSpeed + " J/s",
         LoreBuilder.powerCharged(0, PortableCharger.Type.LARGE.chargeCapacity)
     );
 
     public static final SlimefunItemStack CARBONADO_PORTABLE_CHARGER = new SlimefunItemStack(
         "CARBONADO_PORTABLE_CHARGER",
         Material.NETHERITE_INGOT,
-        "&4Carbonado Portable Charger",
+        "&4卡波纳多便携式充电器",
         "",
-        "&7A handheld charger that holds a lot of power",
+        "&7手持式充电器，可容纳大量电量",
         "",
-        "&eCharge Speed: &7" + PortableCharger.Type.CARBONADO.chargeSpeed + " J/s",
+        "&e充电速度: &7" + PortableCharger.Type.CARBONADO.chargeSpeed + " J/s",
         LoreBuilder.powerCharged(0, PortableCharger.Type.CARBONADO.chargeCapacity)
     );
 
     // Items
     public static final SlimefunItemStack ANCIENT_BOOK = new SlimefunItemStack("ANCIENT_BOOK",
         Material.BOOK,
-        "&6Ancient Book",
+        "&6古籍",
         "",
-        "&7Used in the &cAdvanced Auto Disenchanter",
+        "&7在&c高级自动分解器&7中使用",
         "",
-        "&6&oContains concentrated amounts of power"
+        "&6&o包含集中的力量"
     );
     public static final SlimefunItemStack HELICOPTER_HAT = new SlimefunItemStack("HELICOPTER_HAT",
         Material.LEATHER_HELMET, Color.AQUA,
-        "&1Helicopter Hat",
+        "&1直升机帽",
         "",
         "&7brrrrrrrrRRRRRRRR",
         "",
-        "&eSneak &7to use"
+        "&e潜行&7使用"
     );
     public static final SlimefunItemStack WATERING_CAN = new SlimefunItemStack("WATERING_CAN",
         new CustomItem(SkullItem.fromHash("6484da45301625dee79ae29ff513efa583f1ed838033f20db80963cedf8aeb0e")),
-        "&bWatering Can",
+        "&b喷壶",
         "",
-        "&fWaters Plants",
+        "&f水域植物",
         "",
-        "&7> &eRight Click &7a water to fill your watering can",
-        "&7> &eRight Click &7a plant to speed up growth.",
-        "&7> &eRight Click &7a player to slow them down",
+        "&7> &e右键单击&7水以填充您的喷壶",
+        "&7> &e右键单击&7植物以加快增长。",
+        "&7> &e右键单击&7玩家以减慢它们的速度",
         "",
-        "&aUses Left: &e0"
+        "&a使用左: &e0"
     );
     public static final SlimefunItemStack ENDER_CHEST_EXTRACTION_NODE = new SlimefunItemStack(
         "ENDER_CHEST_EXTRACTION_NODE",
         new CustomItem(SkullItem.fromHash("e707c7f6c3a056a377d4120028405fdd09acfcd5ae804bfde0f653be866afe39")),
-        "&6Ender Chest Extraction Node",
+        "&6末影箱引出节点",
         "",
-        "&7Place this on the side of an &5Ender Chest &7to bind",
+        "&7将此放置在&5末影箱&7的侧面以进行绑定",
         "",
-        "&7This will move items from the facing &5Ender Chest",
-        "&7to the &6Container &7behind it"
+        "&7这会从面向&5末影箱移出物品",
+        "&7到&6容器&7后面"
     );
     public static final SlimefunItemStack ENDER_CHEST_INSERTION_NODE = new SlimefunItemStack(
         "ENDER_CHEST_INSERTION_NODE",
         new CustomItem(SkullItem.fromHash("7e5dc50c0186d53381d9430a2eff4c38f816b8791890c7471ffdb65ba202bc5")),
-        "&bEnder Chest Insertion Node",
+        "&b末影箱插入节点",
         "",
         "&7Place this on the side of an &5Ender Chest &7to bind",
         "",
