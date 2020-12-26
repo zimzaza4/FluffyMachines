@@ -227,7 +227,7 @@ public class FluffyItems {
         Material.CRAFTING_TABLE,
         "&6自动工作台",
         "",
-        "&7自动合成原版物品"
+        "&7自动合成原版物品",
         "",
         LoreBuilderDynamic.powerBuffer(AutoCraftingTable.CAPACITY),
         LoreBuilderDynamic.powerPerTick(AutoCraftingTable.ENERGY_CONSUMPTION)
@@ -245,7 +245,7 @@ public class FluffyItems {
         Material.STONECUTTER,
         "&6自动台锯",
         "",
-        "&7自动合成台锯物品"
+        "&7自动合成台锯物品",
         "",
         LoreBuilderDynamic.powerBuffer(AutoTableSaw.CAPACITY),
         LoreBuilderDynamic.powerPerTick(AutoTableSaw.ENERGY_CONSUMPTION)
