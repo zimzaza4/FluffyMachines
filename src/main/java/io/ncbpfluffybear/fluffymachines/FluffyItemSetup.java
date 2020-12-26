@@ -60,7 +60,7 @@ public final class FluffyItemSetup {
                 new ItemStack(Material.OAK_LOG), new ItemStack(Material.BARREL), new ItemStack(Material.OAK_LOG),
                 new ItemStack(Material.OAK_LOG), new ItemStack(Material.BARREL), new ItemStack(Material.OAK_LOG),
                 new ItemStack(Material.OAK_LOG), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.OAK_LOG)},
-            "&eSmall Fluffy Barrel", Barrel.SMALL_BARREL_SIZE
+            "&e小型桶", Barrel.SMALL_BARREL_SIZE
         ).register(plugin);
 
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.MEDIUM_FLUFFY_BARREL, RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -71,7 +71,7 @@ public final class FluffyItemSetup {
                 new ItemStack(Material.SMOOTH_STONE),
                 new ItemStack(Material.SMOOTH_STONE), SlimefunItems.REINFORCED_PLATE,
                 new ItemStack(Material.SMOOTH_STONE)},
-            "&6Medium Fluffy Barrel", Barrel.MEDIUM_BARREL_SIZE
+            "&6中型桶", Barrel.MEDIUM_BARREL_SIZE
         ).register(plugin);
 
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.BIG_FLUFFY_BARREL, RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -79,7 +79,7 @@ public final class FluffyItemSetup {
                 new ItemStack(Material.BRICKS), FluffyItems.MEDIUM_FLUFFY_BARREL, new ItemStack(Material.BRICKS),
                 new ItemStack(Material.BRICKS), FluffyItems.MEDIUM_FLUFFY_BARREL, new ItemStack(Material.BRICKS),
                 new ItemStack(Material.BRICKS), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.BRICKS)},
-            "&bBig Fluffy Barrel", Barrel.BIG_BARREL_SIZE
+            "&b大型桶I", Barrel.BIG_BARREL_SIZE
         ).register(plugin);
 
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.LARGE_FLUFFY_BARREL, RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -87,7 +87,7 @@ public final class FluffyItemSetup {
                 new ItemStack(Material.IRON_BLOCK), FluffyItems.BIG_FLUFFY_BARREL, new ItemStack(Material.IRON_BLOCK),
                 new ItemStack(Material.IRON_BLOCK), FluffyItems.BIG_FLUFFY_BARREL, new ItemStack(Material.IRON_BLOCK),
                 new ItemStack(Material.IRON_BLOCK), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.IRON_BLOCK)},
-            "&aLarge Fluffy Barrel", Barrel.LARGE_BARREL_SIZE
+            "&a大型桶II", Barrel.LARGE_BARREL_SIZE
         ).register(plugin);
 
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.MASSIVE_FLUFFY_BARREL, RecipeType.ENHANCED_CRAFTING_TABLE,
@@ -95,7 +95,7 @@ public final class FluffyItemSetup {
                 new ItemStack(Material.OBSIDIAN), FluffyItems.LARGE_FLUFFY_BARREL, new ItemStack(Material.OBSIDIAN),
                 new ItemStack(Material.OBSIDIAN), FluffyItems.LARGE_FLUFFY_BARREL, new ItemStack(Material.OBSIDIAN),
                 new ItemStack(Material.OBSIDIAN), SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.OBSIDIAN)},
-            "&5Massive Fluffy Barrel", Barrel.MASSIVE_BARREL_SIZE
+            "&5大型桶III", Barrel.MASSIVE_BARREL_SIZE
         ).register(plugin);
 
         new Barrel(FluffyItems.fluffybarrels, FluffyItems.BOTTOMLESS_FLUFFY_BARREL,
@@ -103,7 +103,7 @@ public final class FluffyItemSetup {
             SlimefunItems.REINFORCED_PLATE, FluffyItems.MASSIVE_FLUFFY_BARREL, SlimefunItems.REINFORCED_PLATE,
             SlimefunItems.REINFORCED_PLATE, FluffyItems.MASSIVE_FLUFFY_BARREL, SlimefunItems.REINFORCED_PLATE,
             SlimefunItems.REINFORCED_PLATE, SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.REINFORCED_PLATE},
-            "&cBottomless Fluffy Barrel", Barrel.BOTTOMLESS_BARREL_SIZE
+            "&c无底桶", Barrel.BOTTOMLESS_BARREL_SIZE
         ).register(plugin);
 
         // Chargers
