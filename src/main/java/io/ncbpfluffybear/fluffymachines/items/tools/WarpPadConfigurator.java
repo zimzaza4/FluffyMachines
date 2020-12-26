@@ -81,7 +81,7 @@ public class WarpPadConfigurator extends SlimefunItem implements Listener {
                         lore.set(LORE_COORDINATE_INDEX, ChatColor.translateAlternateColorCodes(
                             '&', "&e链接坐标： &7" + b.getX() + ", " + b.getY() + ", " + b.getZ()));
 
-                        meta.setLore(lore);as a &aDestination &3and bound to your configurator");
+                        meta.setLore(lore);
 
                         item.setItemMeta(meta);
 
