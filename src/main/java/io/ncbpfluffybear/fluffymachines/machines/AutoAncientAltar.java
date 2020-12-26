@@ -75,7 +75,7 @@ public class AutoAncientAltar extends SlimefunItem implements InventoryBlock, En
     public AutoAncientAltar(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
 
-        new BlockMenuPreset(getId(), "&5Auto Ancient Altar") {
+        new BlockMenuPreset(getId(), "&5自动古坛") {
 
             @Override
             public void init() {
@@ -89,8 +89,8 @@ public class AutoAncientAltar extends SlimefunItem implements InventoryBlock, En
                 if (!BlockStorage.hasBlockInfo(b)
                     || BlockStorage.getLocationInfo(b.getLocation(), "enabled") == null
                     || BlockStorage.getLocationInfo(b.getLocation(), "enabled").equals(String.valueOf(false))) {
-                    menu.replaceExistingItem(6, new CustomItem(Material.GUNPOWDER, "&7Enabled: &4\u2718", "",
-                        "&e> Click to enable this Machine")
+                    menu.replaceExistingItem(6, new CustomItem(Material.GUNPOWDER, "&7已启用: &4\u2718", "",
+                        "&e> 点击启用此机器")
                     );
                     menu.addMenuClickHandler(6, (p, slot, item, action) -> {
                         BlockStorage.addBlockInfo(b, "enabled", String.valueOf(true));
@@ -99,7 +99,7 @@ public class AutoAncientAltar extends SlimefunItem implements InventoryBlock, En
                     });
                 } else {
                     menu.replaceExistingItem(6, new CustomItem(Material.REDSTONE, "&7Enabled: &2\u2714",
-                        "", "&e> Click to disable this Machine")
+                        "", "&e> 单击以禁用此机器")
                     );
                     menu.addMenuClickHandler(6, (p, slot, item, action) -> {
                         BlockStorage.addBlockInfo(b, "enabled", String.valueOf(false));
@@ -108,8 +108,8 @@ public class AutoAncientAltar extends SlimefunItem implements InventoryBlock, En
                     });
                 }
 
-                menu.replaceExistingItem(7, new CustomItem(Material.ENCHANTING_TABLE, "&cCraft Once",
-                    "", "&e> Click to craft recipe once")
+                menu.replaceExistingItem(7, new CustomItem(Material.ENCHANTING_TABLE, "&c一次制作",
+                    "", "&e> 点击制作配方一次")
                 );
                 menu.addMenuClickHandler(7, (p, slot, item, action) -> {
                     BlockStorage.addBlockInfo(b, "craftOnce", String.valueOf(true));
@@ -211,8 +211,8 @@ public class AutoAncientAltar extends SlimefunItem implements InventoryBlock, En
             });
         }
 
-        preset.addItem(2, new CustomItem(new ItemStack(Material.ENCHANTING_TABLE), "&eRecipe",
-                "", "&bPut in the Recipe you want to craft", "&4Ancient Altar Recipes ONLY"
+        preset.addItem(2, new CustomItem(new ItemStack(Material.ENCHANTING_TABLE), "&e配方",
+                "", "&b放入要制作的配方", "&4古代祭坛配方"
             ),
             (p, slot, item, action) -> false);
     }
