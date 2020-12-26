@@ -67,7 +67,7 @@ public class WateringCan extends SimpleSlimefunItem<ItemUseHandler> {
             Player p = e.getPlayer();
 
             if (p.getInventory().getItemInMainHand().getType() != Material.PLAYER_HEAD) {
-                Utils.send(p, "&cThis item is outdated! Please use /fm replace while holding the watering can.");
+                Utils.send(p, "&c此项目已过时!.请在拿着喷壶的同时使用/fm replace");
                 return;
             }
 
@@ -192,7 +192,7 @@ public class WateringCan extends SimpleSlimefunItem<ItemUseHandler> {
         if (updateType == 1) {
 
             if (usesLeft == 0) {
-                Utils.send(p, "&cYou need to refill your Watering Can!");
+                Utils.send(p, "&c您需要重新装满喷壶!");
                 return false;
             }
             p.playSound(p.getLocation(), Sound.ENTITY_DROWNED_AMBIENT_WATER, 0.5F, 1F);
@@ -200,12 +200,12 @@ public class WateringCan extends SimpleSlimefunItem<ItemUseHandler> {
 
         } else if (updateType == 2) {
             p.playSound(p.getLocation(), Sound.ENTITY_DROWNED_DEATH_WATER, 0.5F, 1F);
-            Utils.send(p, "&aYou have filled your Watering Can");
+            Utils.send(p, "&a您已经装满了喷壶");
             usesLeft = maxUses.getValue();
 
         } else if (updateType == 3) {
             if (usesLeft == 0) {
-                Utils.send(p, "&cYou need to refill your Watering Can!");
+                Utils.send(p, "&c您需要重新装满喷壶！");
                 return false;
             }
             usesLeft = 0;
@@ -220,7 +220,7 @@ public class WateringCan extends SimpleSlimefunItem<ItemUseHandler> {
         }
          */
 
-        lore.set(USE_INDEX, ChatColors.color("&aUses Left: &e" + usesLeft));
+        lore.set(USE_INDEX, ChatColors.color("&a使用左: &e" + usesLeft));
         meta.setLore(lore);
         meta.getPersistentDataContainer().set(usageKey, PersistentDataType.INTEGER, usesLeft);
         item.setItemMeta(meta);
