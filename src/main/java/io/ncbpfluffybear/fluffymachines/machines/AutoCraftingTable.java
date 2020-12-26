@@ -61,7 +61,7 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
     public AutoCraftingTable(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
 
-        new BlockMenuPreset(getID(), "&6Auto Crafting Table") {
+        new BlockMenuPreset(getID(), "&6自动工作台") {
 
             @Override
             public void init() {
@@ -73,8 +73,8 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
                 if (!BlockStorage.hasBlockInfo(b)
                     || BlockStorage.getLocationInfo(b.getLocation(), "enabled") == null
                     || BlockStorage.getLocationInfo(b.getLocation(), "enabled").equals(String.valueOf(false))) {
-                    menu.replaceExistingItem(4, new CustomItem(Material.GUNPOWDER, "&7Enabled: &4\u2718",
-                        "", "&e> Click to enable this Machine")
+                    menu.replaceExistingItem(4, new CustomItem(Material.GUNPOWDER, "&7已启动: &4\u2718",
+                        "", "&e> 点击启用此机器")
                     );
                     menu.addMenuClickHandler(4, (p, slot, item, action) -> {
                         BlockStorage.addBlockInfo(b, "enabled", String.valueOf(true));
@@ -82,8 +82,8 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
                         return false;
                     });
                 } else {
-                    menu.replaceExistingItem(4, new CustomItem(Material.REDSTONE, "&7Enabled: &2\u2714",
-                        "", "&e> Click to disable this Machine"));
+                    menu.replaceExistingItem(4, new CustomItem(Material.REDSTONE, "&7已启动: &2\u2714",
+                        "", "&e> 单击以禁用此机器"));
                     menu.addMenuClickHandler(4, (p, slot, item, action) -> {
                         BlockStorage.addBlockInfo(b, "enabled", String.valueOf(false));
                         newInstance(menu, b);
@@ -193,9 +193,9 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
             });
         }
 
-        preset.addItem(2, new CustomItem(new ItemStack(Material.CRAFTING_TABLE), "&eRecipe", "",
-                "&bPut in the Recipe you want to craft", "&ePut in the item you want crafted",
-                "&4Vanilla Crafting Table Recipes ONLY"
+        preset.addItem(2, new CustomItem(new ItemStack(Material.CRAFTING_TABLE), "&e配方", "",
+                "&b放入要制作的配方", "&e放入您要制作的物品",
+                "&4仅原版配方"
             ),
             (p, slot, item, action) -> false);
     }
@@ -272,7 +272,7 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
             } else if (outSlot == getOutputSlots()[1]) {
                 if (menu.hasViewer()) {
                     menu.replaceExistingItem(statusSlot, new CustomItem(new ItemStack(Material.RED_STAINED_GLASS_PANE),
-                        "&c&lStorage Full"));
+                        "&c&l存储已满"));
                 }
                 return;
             }
@@ -282,7 +282,7 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
         if (keyItem == null) {
             if (menu.hasViewer()) {
                 menu.replaceExistingItem(statusSlot, new CustomItem(new ItemStack(Material.RED_STAINED_GLASS_PANE),
-                    "&c&lKey Item Missing"));
+                    "&c&l缺少关键项"));
             }
             return;
         }
@@ -302,7 +302,7 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
                         if (menu.hasViewer()) {
                             menu.replaceExistingItem(statusSlot,
                                 new CustomItem(new ItemStack(Material.RED_STAINED_GLASS_PANE),
-                                    "&c&lYou need to have enough supplies", "&c&lto craft more than one item"));
+                                    "&c&l您需要有足够的材料", "&c&l去制作多个物品"));
                         }
                         return;
                     }
@@ -316,7 +316,7 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
         if (existingMats.isEmpty()) {
             if (menu.hasViewer()) {
                 menu.replaceExistingItem(statusSlot, new CustomItem(new ItemStack(Material.RED_STAINED_GLASS_PANE),
-                    "&c&lNo Input"));
+                    "&c&l无输入"));
             }
             return;
         }
@@ -365,13 +365,13 @@ public class AutoCraftingTable extends SlimefunItem implements InventoryBlock, E
             removeCharge(block.getLocation(), getEnergyConsumption());
             if (menu.hasViewer()) {
                 menu.replaceExistingItem(statusSlot,
-                    new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&a&lRunning"));
+                    new CustomItem(new ItemStack(Material.LIME_STAINED_GLASS_PANE), "&a&l运行中"));
             }
             return true;
         } else if (menu.hasViewer()) {
             menu.replaceExistingItem(statusSlot,
                 new CustomItem(new ItemStack(Material.RED_STAINED_GLASS_PANE),
-                    "&c&lRecipe does not match key")
+                    "&c&l密码不匹配")
             );
         }
         return false;
