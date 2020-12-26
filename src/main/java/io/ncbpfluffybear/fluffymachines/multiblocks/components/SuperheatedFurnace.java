@@ -144,7 +144,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
                         || sfItem == FluffyItems.UPGRADED_EXPLOSIVE_PICKAXE.getItem()
                         || sfItem == FluffyItems.UPGRADED_EXPLOSIVE_SHOVEL.getItem()
                 )) {
-                    Utils.send(p, "&cYou can not break the superheated furnace using explosive tools!");
+                    Utils.send(p, "&c你不能用爆炸工具摧毁它们!");
                     return true;
                 }
 
@@ -158,7 +158,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
                 }
 
                 if (itemCount > 5) {
-                    Utils.send(p, "&cPlease remove nearby items before breaking this superheated furnace!");
+                    Utils.send(p, "&c在拆除此过热炉之前，请先移走附近的物品!");
                     return false;
                 }
 
@@ -172,8 +172,8 @@ public class SuperheatedFurnace extends NonHopperableBlock {
 
                     if (stored > OVERFLOW_AMOUNT) {
 
-                        Utils.send(p, "&eThere are more than " + OVERFLOW_AMOUNT + " items in this superheated furnace! " +
-                            "Dropping " + OVERFLOW_AMOUNT + " items instead!");
+                        Utils.send(p, "&e有超过 " + OVERFLOW_AMOUNT + " 物品在火热炉! " +
+                            "掉落的 " + OVERFLOW_AMOUNT + " 物品代替!");
                         int toRemove = OVERFLOW_AMOUNT;
                         while (toRemove >= stackSize) {
 
