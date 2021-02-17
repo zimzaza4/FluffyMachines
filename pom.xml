@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>me.ncbpfluffybear</groupId>
+    <groupId>io.ncbpfluffybear</groupId>
     <artifactId>FluffyMachines</artifactId>
     <version>1.0.0</version>
 
@@ -33,6 +33,15 @@
             <id>CodeMC</id>
             <url>https://repo.codemc.org/repository/maven-public</url>
         </repository>
+
+        <repository>
+            <id>md_5-snapshots</id>
+            <url>https://repo.md-5.net/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>md_5-releases</id>
+            <url>https://repo.md-5.net/content/repositories/releases/</url>
+        </repository>
     </repositories>
 
     <build>
@@ -59,7 +68,11 @@
                     <relocations>
                         <relocation>
                             <pattern>org.bstats</pattern>
-                            <shadedPattern>me.ncbpfluffybear.fluffymachines</shadedPattern>
+                            <shadedPattern>io.ncbpfluffybear.fluffymachines.bstats</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.github.Slimefun-Addon-Community.extrautils</pattern>
+                            <shadedPattern>io.ncbpfluffybear.fluffymachines.extrautils</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -86,33 +99,34 @@
         <dependency>
             <groupId>com.github.TheBusyBiscuit</groupId>
             <artifactId>CS-CoreLib</artifactId>
-            <version>v1.6.1</version>
+            <version>e9150d7291</version>
             <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.github.thebusybiscuit</groupId>
-                    <artifactId>cscorelib2</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.bstats</groupId>
-                    <artifactId>bstats-bukkit</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>com.github.TheBusyBiscuit</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-17</version>
+            <version>RC-19</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.gmail.nossr50.mcMMO</groupId>
+            <artifactId>mcMMO</artifactId>
+            <version>2.1.149</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
-                    <groupId>io.github.thebusybiscuit</groupId>
-                    <artifactId>cscorelib2</artifactId>
+                    <groupId>org.jetbrains</groupId>
+                    <artifactId>annotations</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>org.bstats</groupId>
-                    <artifactId>bstats-bukkit</artifactId>
+                    <groupId>com.sk89q.worldguard</groupId>
+                    <artifactId>worldguard-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sk89q.worldguard</groupId>
+                    <artifactId>worldguard-legacy</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -133,9 +147,21 @@
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
-            <version>1.7</version>
+            <version>1.8</version>
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.Slimefun-Addon-Community</groupId>
+            <artifactId>extrautils</artifactId>
+            <version>cea1be6550</version>
+        </dependency>
+
+        <dependency>
+            <groupId>fr.neatmonster</groupId>
+            <artifactId>nocheatplus</artifactId>
+            <version>3.16.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

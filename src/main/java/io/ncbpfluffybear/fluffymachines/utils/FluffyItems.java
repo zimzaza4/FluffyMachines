@@ -1,5 +1,6 @@
 package io.ncbpfluffybear.fluffymachines.utils;
 
+import dev.j3fftw.extrautils.utils.LoreBuilderDynamic;
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
@@ -10,7 +11,7 @@ import io.ncbpfluffybear.fluffymachines.items.FireproofRune;
 import io.ncbpfluffybear.fluffymachines.items.tools.PortableCharger;
 import io.ncbpfluffybear.fluffymachines.machines.AdvancedAutoDisenchanter;
 import io.ncbpfluffybear.fluffymachines.machines.AutoAncientAltar;
-import io.ncbpfluffybear.fluffymachines.machines.AutoCrafter;
+import io.ncbpfluffybear.fluffymachines.objects.AutoCrafter;
 import io.ncbpfluffybear.fluffymachines.machines.AutoCraftingTable;
 import io.ncbpfluffybear.fluffymachines.machines.AutoTableSaw;
 import io.ncbpfluffybear.fluffymachines.machines.BackpackLoader;
@@ -451,6 +452,13 @@ public class FluffyItems {
         "&7和电力组件",
         "",
         "&e单击选择块以将其破坏"
+    );
+
+    public static final SlimefunItemStack PAXEL = new SlimefunItemStack("PAXEL",
+        Material.DIAMOND_PICKAXE,
+        "&bPaxel",
+        "",
+        "&7A pickaxe, axe, and shovel in one tool!"
     );
 
     private static final Enchantment glowEnchant = Enchantment.getByKey(Constants.GLOW_ENCHANT);

@@ -13,9 +13,6 @@ import java.util.List;
 
 public final class Constants {
 
-    public static final int SERVER_TICK_RATE = 20;
-
-    public static final int CUSTOM_TICKER_DELAY = SlimefunPlugin.getCfg().getInt("URID.custom-ticker-delay");
 
     public static final int SERVER_VERSION = Integer.parseInt(Bukkit.getVersion().replaceFirst(".*MC: ", "").replace(
         ")", "").replace(".", ""));
@@ -24,6 +21,8 @@ public final class Constants {
         "fm_glow_enchant");
 
     public static final boolean isSoulJarsInstalled = Bukkit.getPluginManager().isPluginEnabled("SoulJars");
+
+    public static final boolean isNCPInstalled = Bukkit.getPluginManager().isPluginEnabled("NoCheatPlus");
 
     public static final List<SlimefunItemStack> dusts = new ArrayList<>(Arrays.asList(
         SlimefunItems.COPPER_DUST, SlimefunItems.GOLD_DUST, SlimefunItems.IRON_DUST,

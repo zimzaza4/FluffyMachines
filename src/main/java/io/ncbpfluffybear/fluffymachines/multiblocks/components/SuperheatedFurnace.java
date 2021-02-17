@@ -1,13 +1,12 @@
 package io.ncbpfluffybear.fluffymachines.multiblocks.components;
 
+import dev.j3fftw.extrautils.objects.NonHopperableBlock;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
-import io.ncbpfluffybear.fluffymachines.objects.NonHopperableBlock;
 import io.ncbpfluffybear.fluffymachines.utils.Constants;
 import io.ncbpfluffybear.fluffymachines.utils.FluffyItems;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
@@ -18,6 +17,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
+import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 import me.mrCookieSlime.Slimefun.cscorelib2.protection.ProtectableAction;
 import io.ncbpfluffybear.fluffymachines.multiblocks.Foundry;
 import org.apache.commons.lang.WordUtils;
@@ -108,7 +108,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
             public boolean canOpen(@Nonnull Block b, @Nonnull Player p) {
                 return (p.hasPermission("slimefun.inventory.bypass")
                     || SlimefunPlugin.getProtectionManager().hasPermission(
-                    p, b.getLocation(), ProtectableAction.ACCESS_INVENTORIES))
+                    p, b.getLocation(), ProtectableAction.INTERACT_BLOCK))
                     && getBlockInfo(b.getLocation(), "accessible") != null
                     && getBlockInfo(b.getLocation(), "ignited") != null && checkStructure(b);
             }
@@ -213,6 +213,9 @@ public class SuperheatedFurnace extends NonHopperableBlock {
                         return true;
                     }
                 }
+                if (BlockStorage.getLocationInfo(b.getLocation(), "stand") != null) {
+                    Bukkit.getEntity(UUID.fromString(BlockStorage.getLocationInfo(b.getLocation(), "stand"))).remove();
+                }
             }
             return true;
         });
@@ -265,7 +268,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
             if (type == null) {
 
                 if (sfItem != null) {
-                    if (sfItem.getID().endsWith("_DUST")) {
+                    if (sfItem.getId().endsWith("_DUST")) {
                         for (SlimefunItemStack dust : dusts) {
                             if (sfItem == dust.getItem()) {
 
@@ -276,7 +279,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
 
                             }
                         }
-                    } else if (sfItem.getID().endsWith("_INGOT")) {
+                    } else if (sfItem.getId().endsWith("_INGOT")) {
                         for (SlimefunItemStack ingot : ingots) {
                             if (sfItem == ingot.getItem()) {
 
@@ -286,7 +289,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
                                 break;
                             }
                         }
-                    } else if (sfItem.getID().equals(SlimefunItems.GOLD_4K.getItemId())) {
+                    } else if (sfItem.getId().equals(SlimefunItems.GOLD_4K.getItemId())) {
                         inv.consumeItem(INPUT_SLOT, amount);
 
                         registerDust(b, "GOLD", amount);
@@ -300,8 +303,8 @@ public class SuperheatedFurnace extends NonHopperableBlock {
                 }
 
             } else {
-                if (sfItem!= null && (sfItem.getID().equals(type + "_DUST") || sfItem.getID().equals(type + "_INGOT"))
-                    || (type.equals("GOLD") && sfItem.getID().equals(SlimefunItems.GOLD_4K.getItemId()))
+                if (sfItem!= null && (sfItem.getId().equals(type + "_DUST") || sfItem.getId().equals(type + "_INGOT"))
+                    || (type.equals("GOLD") && sfItem.getId().equals(SlimefunItems.GOLD_4K.getItemId()))
                     || (type.equals("IRON") && inputItem.getType() == Material.IRON_INGOT
                     && inputItem.getItemMeta().equals(new ItemStack(Material.IRON_INGOT).getItemMeta()))
                     && stored + amount < MAX_STORAGE) {
@@ -420,7 +423,7 @@ public class SuperheatedFurnace extends NonHopperableBlock {
     }
 
     private boolean checkStructure(Block b) {
-        BlockFace face = null;
+        BlockFace face;
         Block relative;
 
         if (b.getRelative(BlockFace.NORTH).getType() == netherite) {

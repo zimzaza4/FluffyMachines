@@ -1,16 +1,14 @@
 package io.ncbpfluffybear.fluffymachines.utils;
 
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper;
+import io.github.thebusybiscuit.slimefun4.implementation.listeners.DispenserListener;
 import io.ncbpfluffybear.fluffymachines.items.FireproofRune;
 import io.ncbpfluffybear.fluffymachines.items.HelicopterHat;
 import io.ncbpfluffybear.fluffymachines.items.tools.WateringCan;
 import io.ncbpfluffybear.fluffymachines.machines.AlternateElevatorPlate;
-import io.ncbpfluffybear.fluffymachines.objects.NonHopperableBlock;
+import javax.annotation.Nonnull;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -24,12 +22,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockDispenseEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryMoveItemEvent;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -37,8 +34,6 @@ import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-
-import javax.annotation.Nonnull;
 
 public class Events implements Listener {
 
@@ -112,11 +107,12 @@ public class Events implements Listener {
                 && (e.getCause() == EntityDamageEvent.DamageCause.FIRE
                 || e.getCause() == EntityDamageEvent.DamageCause.FIRE_TICK
                 || e.getCause() == EntityDamageEvent.DamageCause.LAVA
-                || e.getCause() == EntityDamageEvent.DamageCause.LIGHTNING)) {
-                if (!en.isDead()) {
-                    en.remove();
-                    en.getLocation().getWorld().dropItem(en.getLocation(), item);
-                }
+                || e.getCause() == EntityDamageEvent.DamageCause.LIGHTNING)
+                && !en.isDead()
+            ) {
+                en.remove();
+                en.getLocation().getWorld().dropItem(en.getLocation(), item);
+
             }
         }
     }
@@ -159,17 +155,6 @@ public class Events implements Listener {
         }
     }
 
-    @EventHandler
-    public void onHopper(InventoryMoveItemEvent e) {
-        if (e.getSource().getType() == InventoryType.HOPPER
-            && e.getDestination().getLocation() != null
-            && BlockStorage.hasBlockInfo(e.getDestination().getLocation())) {
-            if (BlockStorage.check(e.getDestination().getLocation()) instanceof NonHopperableBlock) {
-                e.setCancelled(true);
-            }
-        }
-    }
-
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPressurePlateEnter(PlayerInteractEvent e) {
         if (e.getAction() != Action.PHYSICAL || e.getClickedBlock() == null) {
@@ -204,6 +189,14 @@ public class Events implements Listener {
         if ((e.getBlock().getY() != e.getBlockAgainst().getY() || e.getBlockAgainst().getType() != Material.ENDER_CHEST)
             && isExtractionNode(e.getItemInHand())) {
             Utils.send(e.getPlayer(), "&cYou can only place this on an Ender Chest!");
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onDollyDispense(BlockDispenseEvent e) {
+        SlimefunItem sfItem = SlimefunItem.getByItem(e.getItem());
+        if (sfItem != null && sfItem.getId().equals(FluffyItems.DOLLY.getItemId())) {
             e.setCancelled(true);
         }
     }

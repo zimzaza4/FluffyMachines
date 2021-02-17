@@ -4,18 +4,17 @@ import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.items.gps.ElevatorPlate;
 import io.github.thebusybiscuit.slimefun4.libraries.paperlib.PaperLib;
 import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import io.ncbpfluffybear.fluffymachines.utils.Utils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
-import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.Item.CustomItem;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.cscorelib2.chat.ChatColors;
+import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -35,7 +34,7 @@ import java.util.UUID;
 /**
  * Alternative elevators that use a Chest GUI instead of
  * a Book GUI. Avoids issues with chat plugins.
- * Based off of the {@link ElevatorPlate}
+ * Based off of the ElevatorPlate
  *
  * @author NCBPFluffyBear
  * @author TheBusyBiscuit
@@ -93,7 +92,7 @@ public class AlternateElevatorPlate extends SimpleSlimefunItem<BlockUseHandler> 
 
             Block block = b.getWorld().getBlockAt(b.getX(), y, b.getZ());
 
-            if (block.getType() == getItem().getType() && BlockStorage.check(block, getID())) {
+            if (block.getType() == getItem().getType() && BlockStorage.check(block, getId())) {
                 floors.add(block);
             }
         }
